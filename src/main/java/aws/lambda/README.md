@@ -1,5 +1,7 @@
 # AWS Lambda
 
+## Lambda Function Test
+
 1) <a href="https://console.aws.amazon.com/console/home">Sign up on AWS Console</a>
 
 2) Select Lambda Service
@@ -11,7 +13,7 @@
     
     2) Choose an existing role (e.g. lambda_basic_execution)
     
-        Note: First time choose "Create a custom role". In the new opened window: "IAM Role=Create a new IAM Role" and "Role Name=lambda_basic_execution". Press "Allow" button. Maybe after that, you have to modified the policies for this role.
+        Note: First time choose "Create a custom role". In the new opened window: "IAM Role=Create a new IAM Role" and "Role Name=lambda_basic_execution". Press "Allow" button. Maybe after that, you have to modified the policies for this role. Go to "IAM" service, click on "Roles" in the left panel, click "lambda_basic_execution", press "Attach policy" and select the policies you need, e.g. AWSLambdaFullAccess.
         
     3) Press "Create Function" button.
     
