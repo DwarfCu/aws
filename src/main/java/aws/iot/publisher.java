@@ -12,7 +12,7 @@ import java.util.Properties;
 
 public class publisher {
   private static final AWSIotQos QOS = AWSIotQos.QOS0;
-  private static final String TOPIC = "topic/MyIoTButtonTopìc";
+  private static final String TOPIC = "MyIoTButtonTopìc";
   private static final String PAYLOAD = "{\n" +
       "    \"deviceid\" : \"iot123\",\n" +
       "    \"temp\" : 54.98,\n" +

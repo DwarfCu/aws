@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class subscriber extends AWSIotTopic {
   private static final AWSIotQos QOS = AWSIotQos.QOS0;
-  private static final String TOPIC = "topic/MyIoTButtonTopìc";
+  private static final String TOPIC = "MyIoTButtonTopìc";
 
   public static void main (String args[]) {
 
