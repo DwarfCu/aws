@@ -22,15 +22,53 @@ Install the SDK Using Maven
 
 1. Login on AWS console and click on AWS IoT service.
 
-2. Register a device/thing. Attach a policy. Generate, download and associate a certificate to a thing.
+2. Register a device / thing.
 
 +INFO: http://docs.aws.amazon.com/iot/latest/developerguide/register-device.html
 
-3. Create a rule and add an action, e.g. SNS email.
+3. Create and Activate a Device Certificate.
+
++INFO: http://docs.aws.amazon.com/iot/latest/developerguide/create-device-certificate.html
+
+¡¡¡IMPORTANT!!!: Choose Download for the certificate, private key, and the root CA for AWS IoT. Save each of them to your computer.
+
+4. Create and Attach a policy.
+
++INFO: http://docs.aws.amazon.com/iot/latest/developerguide/create-iot-policy.html
+
+After the policy has been created, click on it and check Policy Document:
+```JSON
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "iot:Connect",
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "iot:Subscribe",
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "iot:Publish",
+      "Resource": "arn:aws:iot:<your-region>:<your-endpoint>:topic/MyIoTButtonTopìc"
+    }
+  ]
+}
+```
+
+5. Attach a Certificate to a Thing
+
++INFO: http://docs.aws.amazon.com/iot/latest/developerguide/attach-cert-thing.html
+
+6. Create a rule and add an action, e.g. SNS email.
 
 +INFO: http://docs.aws.amazon.com/iot/latest/developerguide/config-and-test-rules.html
 
-4. Run the Publisher:
+7. Run the Publisher:
 
 
     mvn exec:java -Dexec.mainClass="aws.iot.publisher" -Dexec.args="<config.properties>"
@@ -51,7 +89,26 @@ Your output should be similar:
 
 Check your email.
     
-5. Run the Subscriber:
+8. Run the Subscriber:
 
 
     mvn exec:java -Dexec.mainClass="aws.iot.subscriber" -Dexec.args="<config.properties>"
+    
+Your output should be similar:
+
+    ...
+    Cert file:<your-certf-file> Private key: <your-key-file>
+    nov 24, 2017 12:26:52 PM com.amazonaws.services.iot.client.core.AwsIotConnection onConnectionSuccess
+    INFORMACIÓN: Connection successfully established
+    nov 24, 2017 12:26:52 PM com.amazonaws.services.iot.client.core.AbstractAwsIotClient onConnectionSuccess
+    INFORMACIÓN: Client connection active: <your-client-id>
+    New message: {
+        "deviceid" : "iot123",
+            "temp" : 54.98,
+            "humidity" : 32.43,
+        "coords" : {
+            "latitude" : 47.615694,
+            "longitude" : -122.3359976
+        }
+    }
+    ...
