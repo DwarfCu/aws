@@ -27,7 +27,7 @@ public class IoTMQTTClient {
     this.client = new AWSIotMqttClient(prop.getProperty("clientEndpoint"), prop.getProperty("clientId"), pair.keyStore, pair.keyPassword);
 
     // optional parameters can be set before connect()
-    this.client.setKeepAliveInterval(30000);
+    this.client.setKeepAliveInterval(5000);
   }
 
   public AWSIotMqttClient getClient() {

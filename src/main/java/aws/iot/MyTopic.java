@@ -10,6 +10,6 @@ public class MyTopic extends AWSIotTopic {
   @Override
   public void onMessage(AWSIotMessage message) {
     // called when a message is received
-    System.out.println("hola");
+    System.out.println("New message: " + message);
   }
 }

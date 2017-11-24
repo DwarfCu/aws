@@ -40,7 +40,7 @@ public class publisher {
   }
 
   private static void showHelp()  {
-    System.out.println("Usage: java -classpath targe/aws-1.0-SNAPSHOT.jar aws.iot.publisher <config-file>\n");
+    System.out.println("Usage: mvn exec:java -Dexec.mainClass=\"aws.iot.publisher\" -Dexec.args=\"<config.properties>\"\n");
     System.out.println("See resources/config.properties for an example of a config file.\n");
     System.exit(0);
   }
