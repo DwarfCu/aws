@@ -68,10 +68,16 @@ After the policy has been created, click on it and check Policy Document:
 
 +INFO: http://docs.aws.amazon.com/iot/latest/developerguide/config-and-test-rules.html
 
-7. Run the Publisher:
+7. Create config-publisher.properties file.
+
+   7.1 Fill in resources/config.properties template.
+
+   7.2 Save it as config-publisher.properties.
+
+8. Run the Publisher:
 
 
-    mvn exec:java -Dexec.mainClass="aws.iot.publisher" -Dexec.args="<config.properties>"
+    mvn exec:java -Dexec.mainClass="aws.iot.publisher" -Dexec.args="config-publisher.properties"
    
 Your output should be similar: 
 
@@ -89,10 +95,16 @@ Your output should be similar:
 
 Check your email.
     
-8. Run the Subscriber:
+9. Create config-subscriber.properties file.
+
+   9.1 Fill in resources/config.properties template. Make sure that the clientId is different from the previous one.
+
+   9.2 Save it as config-subscriber.properties. 
+
+10. Run the Subscriber:
 
 
-    mvn exec:java -Dexec.mainClass="aws.iot.subscriber" -Dexec.args="<config.properties>"
+    mvn exec:java -Dexec.mainClass="aws.iot.subscriber" -Dexec.args="config-subscriber.properties"
     
 Your output should be similar:
 
